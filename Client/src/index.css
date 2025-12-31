@@ -1,3 +1,4 @@
+
 * {
   margin: 0;
   padding: 0;
@@ -5,61 +6,165 @@
 }
 
 body {
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  font-family: "Inter", system-ui, -apple-system, sans-serif;
+  background: linear-gradient(135deg, #0f172a, #020617);
+  color: white;
+  min-height: 100vh;
   -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  background-color: #f5f5f5;
 }
 
-#root {
-  min-height: 100vh;
+
+html {
+  scroll-behavior: smooth;
+}
+
+
+h1, h2, h3 {
+  font-weight: 700;
+  letter-spacing: .3px;
 }
 
 .container {
-  max-width: 1200px;
-  margin: 0 auto;
+  max-width: 1000px;
+  margin: auto;
   padding: 20px;
 }
 
 .card {
-  background: white;
-  border-radius: 8px;
+  background: rgba(15, 23, 42, 0.7);
+  border-radius: 16px;
   padding: 20px;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-  margin-bottom: 20px;
+  margin-bottom: 25px;
+  backdrop-filter: blur(14px);
+  box-shadow: 0 25px 50px rgba(0,0,0,.35);
+  border: 1px solid rgba(255,255,255,.06);
+  transition: transform .2s ease, border .2s ease;
 }
 
-button {
-  background-color: #007bff;
+.card:hover {
+  transform: translateY(-2px);
+  border-color: rgba(255,255,255,.12);
+}
+
+
+input {
+  width: 100%;
+  margin-top: 10px;
+  height: 60px;
+  padding: 12px 14px;
+  border-radius: 12px;
+  border: 1px solid #334155;
+  background: #020617;
   color: white;
+  outline: none;
+  margin-bottom: 16px;
+}
+
+input::placeholder {
+  color: #94a3b8;
+}
+
+input:focus {
+  border-color: #6366f1;
+}
+
+
+button {
   border: none;
-  padding: 10px 20px;
-  border-radius: 4px;
+  margin-top: 30px;
+  border-radius: 12px;
+  padding: 12px;
+  font-weight: 600;
+  font-size: 20px;
   cursor: pointer;
-  font-size: 14px;
+  color: white;
+  transition: all .18s ease;
 }
 
 button:hover {
-  background-color: #0056b3;
+ scale :1.05;
+  opacity: .95;
 }
 
-button:disabled {
-  background-color: #ccc;
-  cursor: not-allowed;
+button:active {
+  transform: scale(.98);
 }
 
-input, textarea, select {
-  width: 100%;
-  padding: 10px;
-  border: 1px solid #ddd;
-  border-radius: 4px;
-  font-size: 14px;
-  margin-bottom: 10px;
+
+button.primary {
+  background: #6e97ee;
 }
 
-input:focus, textarea:focus, select:focus {
-  outline: none;
-  border-color: #007bff;
+button.success {
+  background: #60ec93;
+}
+
+button.warning {
+  background: #f59e0b;
+}
+
+button.danger {
+  background: #dc2626;
+}
+
+
+.palette-color {
+  border: 3px solid rgba(255,255,255,.12);
+  border-radius: 12px;
+  cursor: pointer;
+  transition: .2s;
+}
+
+.palette-color:hover {
+  scale:1.2;
+  border-color: rgba(255,255,255,.3);
+}
+
+.saved-card {
+  background: rgba(255,255,255,.06);
+  border-radius: 14px;
+  padding: 15px;
+  transition: .2s ease;
+  border: 1px solid rgba(255,255,255,.06);
+}
+
+.saved-card:hover {
+  border-color: rgba(255,255,255,.2);
+}
+
+
+.toast {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background: #22c55e;
+  color: white;
+  padding: 10px 16px;
+  border-radius: 10px;
+  animation: fade-in .2s ease forwards;
+  z-index: 100;
+}
+
+@keyframes fade-in {
+  from { opacity: 0; transform: translateY(-8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+
+::-webkit-scrollbar {
+  width: 7px;
+}
+::-webkit-scrollbar-thumb {
+  background: #334155;
+  border-radius: 10px;
+}
+
+@media (max-width: 600px) {
+  .card {
+    padding: 15px;
+  }
+
+  button {
+    padding: 10px;
+  }
 }
